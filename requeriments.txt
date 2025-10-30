@@ -1,0 +1,10 @@
+# lista de libs necessarias ate aq
+spotipy
+pandas 
+python-dotenv   
+
+# sobre o .env 
+1 - criem um arquivo .env
+2 - declarem as credenciais do spotipy de vcs la, assim;
+SPOTIPY_CLIENT_ID="ex"
+SPOTIPY_CLIENT_SECRET="ex"
