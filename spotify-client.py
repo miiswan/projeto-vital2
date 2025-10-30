@@ -5,8 +5,8 @@ import pandas as pd
 import os
 
 # minhas credenciais (necessarias para q o servidor identifique qm esta pedindo)
-CLIENT_ID = "62ed88194fe2413fa8b3f278c08e7570"
-CLIENT_SECRET = "87be1073a6aa42529bd7c265631ad4a8"
+CLIENT_ID = "cred"
+CLIENT_SECRET = "secret"
 
 # objeto de autenticacao (a lib spotipy q criou)
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
