@@ -1,4 +1,4 @@
-# arquivo de conexao e api
+#fornece dados pro site
 import spotipy # com ela nao sera necessario usar get e post, apenas o nome das funcoes
 from spotipy.oauth2 import SpotifyClientCredentials
 import pandas as pd
@@ -14,14 +14,8 @@ load_dotenv(dotenv_path=caminho_base / '.env')
 CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID") 
 CLIENT_SECRET = os.getenv("SPOTIPY_CLIENT_SECRET")
 
-# minhas credenciais (necessarias para q o servidor identifique qm esta pedindo)
-CLIENT_ID = "cred"
-CLIENT_SECRET = "secret"
-
-# objeto de autenticacao (a lib spotipy q criou)
+# objeto de autenticacao 
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET
 ))
-
-print("to consumindo a api porraaaa")

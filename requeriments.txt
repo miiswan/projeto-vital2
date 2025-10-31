@@ -2,6 +2,7 @@
 spotipy
 pandas 
 python-dotenv   
+flask 
 
 # sobre o .env 
 1 - criem um arquivo .env
