@@ -10,7 +10,7 @@ from pathlib import Path
 caminho_base = Path(__file__).resolve().parent
 load_dotenv(dotenv_path=caminho_base / '.env') 
 
-#credenciais
+#credenciais  (necessarias para q o servidor identifique qm esta pedindo)
 CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID") 
 CLIENT_SECRET = os.getenv("SPOTIPY_CLIENT_SECRET")
 
