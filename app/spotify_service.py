@@ -15,7 +15,7 @@ def create_spotify_oauth():
         client_id=os.getenv("SPOTIFY_CLIENT_ID"), #credenciais
         client_secret=os.getenv("SPOTIFY_CLIENT_SECRET"),
         redirect_uri=os.getenv("SPOTIFY_REDIRECT_URI"),
-        scope="user-read-private user-read-email"
+        scope="user-read-private user-read-email user-top-read"
     )
 
 def get_user_data(access_token):
@@ -25,3 +25,13 @@ def get_user_data(access_token):
     sp = spotipy.Spotify(auth=access_token)
     user_info = sp.current_user()
     return user_info
+
+def get_user_top_artists(access_token, time_range='medium-item', limit=5, offset=0):
+    sp = spotipy.Spotify(auth=access_token)
+    top_artists = sp.current_user_top_artists(
+        limit=limit,
+        offset=offset,
+        time_range=time_range
+    )
+
+    return top_artists

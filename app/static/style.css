@@ -1,0 +1,11 @@
+body{
+    min-height: 100vh;
+
+    display: flex;
+    background-color: #282828;
+    color: white;
+}
+header{
+    height: 100%;
+    background-color: #4A4848;
+}

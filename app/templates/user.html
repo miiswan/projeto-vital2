@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Olá, {{user.display_name}}! Seu Spotify está conectado 🎵</h1>
-    <img src="{{user.images[0].url}}" alt="">
+    <header>
+        <nav>
+            <a href="">home</a>
+            <a href="">user</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Olá, {{user.display_name}}! Seu Spotify está conectado 🎵</h1>
+        <img src="{{user.images[0].url}}" alt="">
+    </main>
 </body>
 </html>
