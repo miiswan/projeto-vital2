@@ -12,3 +12,7 @@ header{
 main{
     display: flex;
 }
+main section #artists_list img{
+    width: 200px;
+    border-radius: 100%;
+}

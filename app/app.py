@@ -3,6 +3,7 @@
 from flask import Flask, redirect, url_for, request, session, render_template
 from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists
 import os
+from collections import Counter
 
 # cria a aplicação flask
 app = Flask(__name__)
@@ -50,6 +51,7 @@ def callback():
 
 @app.route('/user')
 def user_profile():
+    genre_counts = Counter()
     user_data = session.get('user_data')
     token_info = session.get('token_info')
 
@@ -58,9 +60,17 @@ def user_profile():
     
     access_token = token_info['access_token']
 
-    top_artists = get_user_top_artists(access_token)
+    top_artists = get_user_top_artists(access_token, time_range='medium_term', limit=5, offset=0)
 
-    return render_template('user.html', user=user_data, artists=top_artists)
+    top_artists_to_format = get_user_top_artists(access_token, time_range='medium_term', limit=50, offset=0)
+
+    # Analisando os dados dos 50 artistas mais escutados para saber os gêneros mais escutados
+    for artist in top_artists_to_format['items']:
+        for genre in artist['genres']:
+            genre_counts[genre.capitalize()] += 1
+            
+    #retornando a página user.html com os dados do usuário, dos artistas mais escutaso, gêneros mais escutados
+    return render_template('user.html', user=user_data, artists=top_artists, genres=genre_counts.most_common(10))
 
 
 @app.route('/logout')

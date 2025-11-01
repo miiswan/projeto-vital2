@@ -21,9 +21,15 @@
                 <img src="{{user.images[0].url}}" alt="">
             </div>
             <p>Meus Artistas</p>
-            <div>
-                {{artists['items'][0].images}}
-                
+            <div id="artists_list">
+                {% for artist in artists['items'] %}
+                    <img src="{{artist.images[1].url}}    " alt="">
+                {% endfor %}
+            </div>
+            <div id="genres_list">
+                {% for genre in genres%}
+                    <p>{{genre[0]}}</p>
+                {% endfor %}
             </div>
         </section>
         <section>
