@@ -1,6 +1,6 @@
 # servidor flask
 #importa o flask, e as funcoes do arquivo spotify_service
-from flask import Flask, redirect, request, session, render_template
+from flask import Flask, redirect, url_for, request, session, render_template
 from spotify_service import create_spotify_oauth, get_user_data
 
 # cria a aplicação flask
@@ -13,7 +13,11 @@ app = Flask(__name__)
 # pagina inicial
 @app.route('/')
 def index():
-    return render_template('index.html') # carrega o html
+    sp_oauth = create_spotify_oauth()
+    code = request.args.get('code')
+    if sp_oauth.get_access_token(code):
+        return redirect(url_for('callback'))
+    return render_template('login.html') # carrega o html
 
 # rota para fazer login no Spotify
 @app.route('/login')
