@@ -36,7 +36,7 @@ def callback():
     # pega os dados do usuário logado
     user_data = get_user_data(token_info['access_token'])
     # mostra o nome do usuário
-    return f"Olá, {user_data['display_name']}! Seu Spotify está conectado 🎵"
+    return render_template('user.html', user=user_data)
 
 # roda o servidor
 if __name__ == '__main__':
