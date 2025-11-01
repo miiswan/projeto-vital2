@@ -1,6 +1,5 @@
 # lista de libs necessarias ate aq
 spotipy
-pandas 
 python-dotenv   
 flask 
 
@@ -9,3 +8,4 @@ flask
 2 - declarem as credenciais do spotipy de vcs la, assim;
 SPOTIPY_CLIENT_ID="ex"
 SPOTIPY_CLIENT_SECRET="ex"
+SPOTIFY_REDIRECT_URI=http://127.0.0.1:5000/callback
