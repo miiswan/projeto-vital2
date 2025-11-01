@@ -26,12 +26,8 @@ def get_user_data(access_token):
     user_info = sp.current_user()
     return user_info
 
-def get_user_top_artists(access_token, time_range='medium-item', limit=5, offset=0):
+def get_user_top_artists(access_token, time_range='medium_term', limit=5, offset=0):
     sp = spotipy.Spotify(auth=access_token)
-    top_artists = sp.current_user_top_artists(
-        limit=limit,
-        offset=offset,
-        time_range=time_range
-    )
+    top_artists = sp.current_user_top_artists(limit=limit, offset=offset, time_range=time_range)
 
     return top_artists
