@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}">
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
     <main>
         <section>
             <h2>Meu Dashboard</h2>
-            <div>
+            <div> 
                 <h1>{{user.display_name}}</h1>
                 {% if user_image %}
                 <img src="{{ user_image }}" alt="Foto de perfil">
