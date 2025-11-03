@@ -31,3 +31,5 @@ def get_user_top_artists(access_token, time_range, limit, offset):
     top_artists = sp.current_user_top_artists(limit=limit, offset=offset, time_range=time_range)
 
     return top_artists
+
+

@@ -8,18 +8,22 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="">home</a>
-            <a href="">user</a>
+        <div class="box-nav">
+        <nav class="navbar">
+            <a id="p.home" href="">Home</a>
+            <a id="p.meudash" href="">Meu Dashboard</a>
+            <a id="p.amigos" href="">Amigos</a>
+            <a id="p.global" href="">Global</a>
         </nav>
+        </div>
     </header>
     <main>
         <section>
-            <h2>Meu Dashboard</h2>
+            <h2 class="title">Meu Dashboard</h2>
             <div> 
-                <h1>{{user.display_name}}</h1>
+                <h1 class="username">{{user.display_name}}</h1>
                 {% if user_image %}
-                <img src="{{ user_image }}" alt="Foto de perfil">
+                <img class="foto-user" src="{{ user_image }}" alt="Foto de perfil">
                 {% else %}
                 <img src="{{ url_for('static', filename='default_user.png') }}" alt="Sem foto">
                 {% endif %}
@@ -30,14 +34,16 @@
                     <img src="{{artist.images[1].url}}" alt="">
                 {% endfor %}
             </div>
-            <div id="genres_list">
+            <div class="generos" id="genres_list">
                 {% for genre in genres%}
-                    <p>{{genre[0]}}</p>
+                    <p class="title-generos">{{genre[0]}}</p>
                 {% endfor %}
             </div>
-        </section>
-        <section>
-            <h2>Home</h2>
+            <div class="card-musicas">
+                <div id="musica" class="box-musica">
+                    <p></p>
+                </div>
+            </div>
         </section>
     </main>
 </body>
