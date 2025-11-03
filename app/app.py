@@ -60,7 +60,7 @@ def user_profile():
     
     access_token = token_info['access_token']
 
-    top_artists = get_user_top_artists(access_token, time_range='medium_term', limit=5, offset=0)
+    top_artists = get_user_top_artists(access_token, time_range='medium_term', limit=5, offset=2)
 
     top_artists_to_format = get_user_top_artists(access_token, time_range='medium_term', limit=50, offset=0)
 
@@ -68,10 +68,17 @@ def user_profile():
     for artist in top_artists_to_format['items']:
         for genre in artist['genres']:
             genre_counts[genre.capitalize()] += 1
-            
-    #retornando a página user.html com os dados do usuário, dos artistas mais escutaso, gêneros mais escutados
-    return render_template('user.html', user=user_data, artists=top_artists, genres=genre_counts.most_common(10))
 
+    #retornando a página user.html com os dados do usuário, dos artistas mais escutaso, gêneros mais escutados
+    user_image = user_data['images'][0]['url'] if user_data.get('images') else None
+    return render_template(
+    'user.html',
+    user=user_data,
+    user_image=user_image,
+    artists=top_artists,
+    genres=genre_counts.most_common(10)
+)
+    #alteração aqui em cima
 
 @app.route('/logout')
 def logout():
