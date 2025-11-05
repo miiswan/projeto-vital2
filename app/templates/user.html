@@ -8,43 +8,28 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}">
 </head>
 <body>
-    <nav class="sidebar">
-        <a id="p.home" href="/" class="menu-item">
-            <img src="{{ url_for('static', filename='img/home.png') }}" alt="Home">
-            <span>Home</span>
-        </a>
-        <a id="p.meudash" href="/dashboard" class="menu-item">
-            <img src="{{ url_for('static', filename='img/dashboard.png') }}" alt="Dashboard">
-            <span>Meu Dashboard</span>
-        </a>
-        <a id="p.amigos" href="/amigos" class="menu-item">
-            <img src="{{ url_for('static', filename='img/amigos.png') }}" alt="Amigos">
-            <span>Amigos</span>
-        </a>
-        <a id="p.global" href="/global" class="menu-item">
-            <img src="{{ url_for('static', filename='img/global.png') }}" alt="Global">
-            <span>Global</span>
-        </a>
-    </nav>
-
+    <div class="container">
+    
 <main>
     <div class="main-content">
         <section>
             <h2 class="title">Meu Dashboard</h2>
-            <div>
-                <h1 class="username">{{user.display_name}}</h1>
+            <div class="box-user">
+                
                 {% if user.images and user.images[0] %}
-                <img src="{{ user.images[0].url }}" alt="Foto de perfil">
+                <img class="fotoperfil" src="{{ user.images[0].url }}" alt="Foto de perfil">
                 {% else %}
                 <img src="{{ url_for('static', filename='img/default_image.png') }}" alt="Sem foto de perfil">
                 {% endif %}
+                <h1 class="username">{{user.display_name}}</h1>
             </div>
 
-            <p>Meus Artistas</p>
+            
             <div id="artists_list">
+                <h1 class="title-artistas">Meus artistas</h1>
                 {% for artist in artists['items'] %}
                 {% if artist.images[1].url %}
-                <img src="{{artist.images[1].url}}" alt="">
+                <img class="artist-img" src="{{artist.images[1].url}}" alt="">
                 {% else %}
                 <img src="{{ url_for('static', filename='img/no_image_artist.png') }}" alt="">
                 {% endif %}
@@ -52,12 +37,14 @@
             </div>
 
             <div class="generos" id="genres_list">
+                <h1>Gêneros mais ouvidos</h1>
                 {% for genre in genres %}
                 <p class="title-generos">{{genre[0]}}</p>
                 {% endfor %}
             </div>
-
+            
             <div class="card-musicas">
+                <h1>Minhas músicas</h1>
                 <div id="musica" class="box-musica">
                     {% for music in musics %}
                     <iframe data-testid="embed-iframe" style="border-radius:12px"
@@ -71,5 +58,33 @@
         </section>
     </div>
 </main>
+<nav class="sidebar">
+        
+        <a id="p.home" href="/" class="menu-item">
+            <p class="text-sidebar1" >Home</p>
+        </a>
+        <a id="p.meudash" href="/dashboard" class="menu-item">
+            <p class="text-sidebar" >Meu dashboard</p>
+        </a>
+        <div class="box-nav-item">
+        <a id="p.amigos" href="/amigos" class="menu-item">
+            <span class="text-sidebar">Amigos</span>
+          <svg class="svg-nav xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="84" cy="108" r="52" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M10.23,200a88,88,0,0,1,147.54,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M172,160a87.93,87.93,0,0,1,73.77,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M152.69,59.7A52,52,0,1,1,172,160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+        </a>
+        </div>
+         <div class="box-nav-item">
+        <a href=""  class="menu-item">
+            <span class="text-sidebar">Brasil</span>
+            <svg class="svg-nav xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="48" y1="224" x2="48" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M48,176c64-55.43,112,55.43,176,0V56C160,111.43,112,.57,48,56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+        </a>
+        </div>
+        <div class="box-nav-item">
+        <a id="p.global" href="/global" class="menu-item">
+            <span class="text-sidebar">Global</span>
+            <svg class="svg-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M168,128c0,64-40,96-40,96s-40-32-40-96,40-96,40-96S168,64,168,128Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="37.46" y1="96" x2="218.54" y2="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="37.46" y1="160" x2="218.54" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+        </a>
+        </div>
+    </nav>
+</div>
 </body>
 </html>

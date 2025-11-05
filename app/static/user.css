@@ -7,9 +7,13 @@
 body {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-  display: flex; /* mantém o layout lado a lado */
   background-color: var(--bg-color);
   color: white;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  min-height: 100vh;
 }
 img {
   border-radius: 50%;
@@ -37,43 +41,81 @@ main section #artists_list img{
 }
 .title{
     color: var(--verde);
+    font-size: 50px;
+    font-weight: 400;
 }
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 140px; /* ligeiramente mais largo pra caber texto */
-  background-color: #1DB954;
+  background-color: var(--cinza);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
   padding-top: 30px;
   gap: 25px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border-radius: 10px;
 }
-/* Cada item (ícone + texto) */
-.menu-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.text-sidebar{
+  font-weight: 400;
+  font-size: 20px;
+  color: white;
   text-decoration: none;
-  color: black;
-  font-weight: bold;
-  transition: all 0.2s ease;
+  margin-left: 50px;
 }
-.menu-item img {
-  width: 45px;
-  height: 45px;
-  margin-bottom: 8px;
+.text-sidebar1{
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  margin-left: 85px;
 }
-.menu-item span {
-  font-size: 14px;
-  text-align: center;
+.box-nav-item{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+}
+.menu-item{
+  text-decoration: none;
+}
+.svg-nav{
+  color: var(--verde);
+  width: 40px;
+  margin-left: 20px;  
+  margin-top: 10px;
+}
+.box-nav-item:hover  {
+  color: var(--verde);
+}
+.text-sidebar:hover {
+  color: var(--verde);
+}
+.text-sidebar1:hover{
+  color: var(--verde);
 }
 
-.menu-item:hover {
-  opacity: 0.8;
-  transform: scale(1.05);
+.box-nav-item:hover svg {
+  transform: scale(1.1);
+  color: #14401f;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.box-user{
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+.username{
+  color: var(--verde);
+  font-weight: 400;
+}
+.fotoperfil{
+  border-radius: 20%;
+}
+.title-artistas{
+  color: var(--verde);
+  font-weight: 400;
+  font-size: 30px;
 }

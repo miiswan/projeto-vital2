@@ -62,7 +62,7 @@ def user_profile():
     
     access_token = token_info['access_token']
 
-    top_tracks = get_user_top_musics(access_token, time_range='medium_term', limit=5, offset=0)
+    top_tracks = get_user_top_musics(access_token, time_range='medium_term', limit=10, offset=0)
 
     top_artists = get_user_top_artists(access_token, time_range='medium_term', limit=5, offset=0)
 
