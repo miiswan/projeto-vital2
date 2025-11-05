@@ -4,19 +4,32 @@
   --cinza: #4A4848;
   --verde: #278B42;
 }
-body{
-    font-family: 'Poppins' , sans-serif;
-    min-height: 100vh;
-    display: flex;
-    background-color:var(--bg-color);
-    color: white;
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex; /* mantém o layout lado a lado */
+  background-color: var(--bg-color);
+  color: white;
+}
+img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 header{
     height: 100%;
     background-color: #282828;
 }
-main{
-    display: flex;
+main {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.main-content {
+  margin-left: 160px; /* espaço maior que a largura da sidebar */
+  padding: 20px;
 }
 main section #artists_list img{
     width: 200px;
@@ -24,4 +37,43 @@ main section #artists_list img{
 }
 .title{
     color: var(--verde);
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 140px; /* ligeiramente mais largo pra caber texto */
+  background-color: #1DB954;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  gap: 25px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+/* Cada item (ícone + texto) */
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.menu-item img {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 8px;
+}
+.menu-item span {
+  font-size: 14px;
+  text-align: center;
+}
+
+.menu-item:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
 }
