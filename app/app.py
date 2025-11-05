@@ -1,7 +1,9 @@
 # servidor flask
 #importa o flask, e as funcoes do arquivo spotify_service
+from os import access
+
 from flask import Flask, redirect, url_for, request, session, render_template
-from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics
+from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics, get_playlist_tracks
 import os
 from collections import Counter
 
@@ -87,7 +89,6 @@ def user_profile():
         genres=genre_counts.most_common(10),
         musics=top_tracks_ids
 )
-#alteração aqui em cima
 
 @app.route('/logout')
 def logout():
