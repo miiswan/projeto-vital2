@@ -78,16 +78,16 @@ def user_profile():
         top_tracks_ids.append(idTrack)
 
     #retornando a página user.html com os dados do usuário, dos artistas mais escutaso, gêneros mais escutados
-    user_image = user_data['images'][0]['url'] if user_data.get('images') else None
+    user_image = user_data['images'][0]['url'] if user_data.get('images') else url_for('static', filename='default_user.png')
     return render_template(
     'user.html',
-    user=user_data,
-    user_image=user_image,
-    artists=top_artists,
-    genres=genre_counts.most_common(10),
-    musics=top_tracks_ids
+        user=user_data,
+        user_image=user_image,
+        artists=top_artists,
+        genres=genre_counts.most_common(10),
+        musics=top_tracks_ids
 )
-    #alteração aqui em cima
+#alteração aqui em cima
 
 @app.route('/logout')
 def logout():
