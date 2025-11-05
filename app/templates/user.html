@@ -3,54 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SpotWave</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}">
 </head>
 <body>
-    <header>
-        <div class="box-nav">
-        <nav class="navbar">
-            <a id="p.home" href="">Home</a>
-            <a id="p.meudash" href="">Meu Dashboard</a>
-            <a id="p.amigos" href="">Amigos</a>
-            <a id="p.global" href="">Global</a>
-        </nav>
-        </div>
-    </header>
-    <main>
+    <nav class="sidebar">
+        <a id="p.home" href="/" class="menu-item">
+            <img src="{{ url_for('static', filename='img/home.png') }}" alt="Home">
+            <span>Home</span>
+        </a>
+        <a id="p.meudash" href="/dashboard" class="menu-item">
+            <img src="{{ url_for('static', filename='img/dashboard.png') }}" alt="Dashboard">
+            <span>Meu Dashboard</span>
+        </a>
+        <a id="p.amigos" href="/amigos" class="menu-item">
+            <img src="{{ url_for('static', filename='img/amigos.png') }}" alt="Amigos">
+            <span>Amigos</span>
+        </a>
+        <a id="p.global" href="/global" class="menu-item">
+            <img src="{{ url_for('static', filename='img/global.png') }}" alt="Global">
+            <span>Global</span>
+        </a>
+    </nav>
+
+<main>
+    <div class="main-content">
         <section>
             <h2 class="title">Meu Dashboard</h2>
-            <div> 
+            <div>
                 <h1 class="username">{{user.display_name}}</h1>
-                {% if user_image %}
-                <img class="foto-user" src="{{ user_image }}" alt="Foto de perfil">
+                {% if user.images and user.images[0] %}
+                <img src="{{ user.images[0].url }}" alt="Foto de perfil">
                 {% else %}
-                <img src="{{ url_for('static', filename='default_user.png') }}" alt="Sem foto">
+                <img src="{{ url_for('static', filename='img/default_image.png') }}" alt="Sem foto de perfil">
                 {% endif %}
             </div>
+
             <p>Meus Artistas</p>
             <div id="artists_list">
                 {% for artist in artists['items'] %}
-                    {% if artist.images[1].url %}
-                        <img src="{{artist.images[1].url}}" alt="">
-                    {% else %}
-                        <img src="{{ url_for('static', filename='no_image_artist.png') }}" alt="">
-                    {% endif %}
+                {% if artist.images[1].url %}
+                <img src="{{artist.images[1].url}}" alt="">
+                {% else %}
+                <img src="{{ url_for('static', filename='img/no_image_artist.png') }}" alt="">
+                {% endif %}
                 {% endfor %}
             </div>
+
             <div class="generos" id="genres_list">
-                {% for genre in genres%}
-                    <p class="title-generos">{{genre[0]}}</p>
+                {% for genre in genres %}
+                <p class="title-generos">{{genre[0]}}</p>
                 {% endfor %}
             </div>
+
             <div class="card-musicas">
                 <div id="musica" class="box-musica">
                     {% for music in musics %}
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/{{music}}?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/{{music}}?utm_source=generator"
+                            width="100%" height="152" frameborder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
                     {% endfor %}
                 </div>
             </div>
         </section>
-    </main>
+    </div>
+</main>
 </body>
 </html>
