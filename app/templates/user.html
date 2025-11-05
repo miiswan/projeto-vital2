@@ -31,7 +31,11 @@
             <p>Meus Artistas</p>
             <div id="artists_list">
                 {% for artist in artists['items'] %}
-                    <img src="{{artist.images[1].url}}" alt="">
+                    {% if artist.images[1].url %}
+                        <img src="{{artist.images[1].url}}" alt="">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='no_image_artist.png') }}" alt="">
+                    {% endif %}
                 {% endfor %}
             </div>
             <div class="generos" id="genres_list">
