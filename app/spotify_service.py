@@ -32,4 +32,10 @@ def get_user_top_artists(access_token, time_range, limit, offset):
 
     return top_artists
 
+def get_user_top_musics(access_token, time_range, limit, offset):
+    sp = spotipy.Spotify(auth= access_token)
+    top_tracks = sp.current_user_top_tracks(limit=limit, offset=offset, time_range=time_range)
+
+    return top_tracks
+
 

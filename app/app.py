@@ -1,7 +1,7 @@
 # servidor flask
 #importa o flask, e as funcoes do arquivo spotify_service
 from flask import Flask, redirect, url_for, request, session, render_template
-from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists
+from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics
 import os
 from collections import Counter
 
@@ -60,7 +60,9 @@ def user_profile():
     
     access_token = token_info['access_token']
 
-    top_artists = get_user_top_artists(access_token, time_range='medium_term', limit=50, offset=0)
+    top_tracks = get_user_top_musics(access_token, time_range='medium_term', limit=5, offset=0)
+
+    top_artists = get_user_top_artists(access_token, time_range='medium_term', limit=5, offset=0)
 
     top_artists_to_format = get_user_top_artists(access_token, time_range='medium_term', limit=50, offset=0)
 
@@ -69,6 +71,12 @@ def user_profile():
         for genre in artist['genres']:
             genre_counts[genre.capitalize()] += 1
 
+    top_tracks_ids = []
+    for track in top_tracks['items']:
+        url = track['external_urls']['spotify']
+        idTrack = url.split('/')[-1]
+        top_tracks_ids.append(idTrack)
+
     #retornando a página user.html com os dados do usuário, dos artistas mais escutaso, gêneros mais escutados
     user_image = user_data['images'][0]['url'] if user_data.get('images') else None
     return render_template(
@@ -76,7 +84,8 @@ def user_profile():
     user=user_data,
     user_image=user_image,
     artists=top_artists,
-    genres=genre_counts.most_common(10)
+    genres=genre_counts.most_common(10),
+    musics=top_tracks_ids
 )
     #alteração aqui em cima
 
