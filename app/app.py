@@ -3,7 +3,7 @@
 from os import access
 
 from flask import Flask, redirect, url_for, request, session, render_template
-from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics, get_playlist_tracks
+from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics
 import os
 from collections import Counter
 
