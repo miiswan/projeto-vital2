@@ -42,7 +42,9 @@
                 <h1 class="title-generos" >Gêneros mais escutados</h1>
                 <div class="generos-grid">
                 {% for genre in genres %}
-                <spam class="nome-generos">{{genre[0]}}</spam>
+                <div class="nome-generos">
+                    <spam >{{genre[0]}}</spam>
+                </div>
                 {% endfor %}
                 </div>
             </div>

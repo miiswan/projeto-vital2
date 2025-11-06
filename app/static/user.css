@@ -3,6 +3,7 @@
   --bg-color: #282828; 
   --cinza: #4A4848;
   --verde: #278B42;
+  --backgroundNameGenres: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(39, 139, 66, 1) 100%);
 }
 body {
   font-family: 'Poppins', sans-serif;
@@ -143,10 +144,15 @@ main section #artists_list img{
     /* background-color: white; */
 }
 .nome-generos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
-  background-color: var(--verde);
+  background: var(--verde);
   border-radius: 8px;
   height: 30px;
+  color: white;
+  font-weight: bold;
 }
 .box-musica{
     position: fixed;
