@@ -8,7 +8,6 @@ body {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
   background-color: var(--bg-color);
-  color: white;
 }
 .container {
   display: grid;
@@ -32,24 +31,23 @@ main {
   align-items: flex-start;
 }
 .main-content {
-  margin-left: 160px; /* espaço maior que a largura da sidebar */
   padding: 20px;
+  margin-left: 85px;
 }
 main section #artists_list img{
-    width: 200px;
     border-radius: 100%;
 }
 .title{
     color: var(--verde);
     font-size: 50px;
-    font-weight: 400;
+    font-weight: 500;
+    margin-top: 20px;
 }
 .sidebar {
   background-color: var(--cinza);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 30px;
   gap: 25px;
   height: 100vh;
   position: sticky;
@@ -79,6 +77,9 @@ main section #artists_list img{
 }
 .menu-item{
   text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
 }
 .svg-nav{
   color: var(--verde);
@@ -110,6 +111,9 @@ main section #artists_list img{
 .username{
   color: var(--verde);
   font-weight: 400;
+  display: flex;
+  align-items: center;
+
 }
 .fotoperfil{
   border-radius: 20%;
@@ -118,4 +122,56 @@ main section #artists_list img{
   color: var(--verde);
   font-weight: 400;
   font-size: 30px;
+  margin-top: 50px;
+}
+.title-generos {
+   color: var(--verde);
+   font-weight: 400;
+  font-size: 30px;
+  margin-top: 30px;
+}
+.artists-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.generos-grid{
+  margin-top: 40px;
+  display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    /* background-color: white; */
+}
+.nome-generos {
+  padding: 10px;
+  background-color: var(--verde);
+  border-radius: 8px;
+  height: 30px;
+}
+.box-musica{
+    position: fixed;
+    right: 350px;
+    top: 58%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 50rem;
+    background: var(--bg-color);
+    border-radius: 20px;
+    padding: 20px 15px;
+    /* max-height: 550px; */
+     
+}
+
+.listagem {
+  display: flex;
+  gap: 20px;
+}
+.minhas {
+    color: var(--verde);
+    font-weight: 500;
+    position: fixed;
+    right: 400px;
+    transform: translateY(-50%);
+    height: 93rem;
+    padding: 20px 15px;
 }
