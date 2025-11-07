@@ -3,7 +3,7 @@
 from os import access
 
 from flask import Flask, redirect, url_for, request, session, render_template
-from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics
+from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics, get_top_artist_by_genre
 import os
 from collections import Counter
 
@@ -73,6 +73,17 @@ def user_profile():
         for genre in artist['genres']:
             genre_counts[genre.capitalize()] += 1
 
+    genres = genre_counts.most_common(5)
+    genres_to_lower_case = []
+    
+    for genre in genres:
+        genre_lower = genre[0].lower()
+        genres_to_lower_case.append(genre_lower)
+    print(genres_to_lower_case)
+
+    most_listend_artist_by_genre = get_top_artist_by_genre(top_artists_to_format, genres)
+
+    #Coletando apenas os ids das músicas mais escutadas
     top_tracks_ids = []
     for track in top_tracks['items']:
         url = track['external_urls']['spotify']
@@ -86,8 +97,9 @@ def user_profile():
         user=user_data,
         user_image=user_image,
         artists=top_artists,
-        genres=genre_counts.most_common(10),
-        musics=top_tracks_ids
+        genres=genres_to_lower_case,
+        musics=top_tracks_ids,
+        artist_by_genre=most_listend_artist_by_genre
 )
 
 @app.route('/logout')

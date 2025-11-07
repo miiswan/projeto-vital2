@@ -1,85 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpotWave - Meu dashboard</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icone.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}">
-</head>
-<body>       
-<div class="geral-grid">
-
-                <div class="sidebar">
-                    <div class="logo">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v18M6 7v10m6-11v12m3-9v6m3-8v10m3-6v2M3 11v2"/></svg>
-                        <h1 class="spotwave">SpotWave</h1>
-                    </div>
-                    <nav>
-                        <div class="menu-item" id="dashboard">
-                            <div class="svg-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff7f7" d="M13 8V4q0-.425.288-.712T14 3h6q.425 0 .713.288T21 4v4q0 .425-.288.713T20 9h-6q-.425 0-.712-.288T13 8M3 12V4q0-.425.288-.712T4 3h6q.425 0 .713.288T11 4v8q0 .425-.288.713T10 13H4q-.425 0-.712-.288T3 12m10 8v-8q0-.425.288-.712T14 11h6q.425 0 .713.288T21 12v8q0 .425-.288.713T20 21h-6q-.425 0-.712-.288T13 20M3 20v-4q0-.425.288-.712T4 15h6q.425 0 .713.288T11 16v4q0 .425-.288.713T10 21H4q-.425 0-.712-.288T3 20m2-9h4V5H5zm10 8h4v-6h-4zm0-12h4V5h-4zM5 19h4v-2H5zm4-2"/></svg></div> <a href="" class="text-menuitem">Dashboard</a>
-                        </div>
-                        <div class="menu-item">
-                            <div class="svg-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="#fff7f7" d="M256 102L20 256l236 154l236-154zm0 54a100 100 0 0 1 100 100a100 100 0 0 1-.504 10.014c-48.123-36.173-110.506-57.542-168.914-56.409c-6.632.13-13.207.566-19.709 1.286A100 100 0 0 1 256 156m-65.568 71.73c55.59.133 116.403 22.059 161.045 57.979A100 100 0 0 1 256 356a100 100 0 0 1-100-100a100 100 0 0 1 3.545-25.943c10.012-1.593 20.354-2.352 30.887-2.327"/></svg></div> <a href="" class="text-menuitem">Brasil</a>
-                        </div>
-                        <div class="menu-item">
-                            <div class="svg-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20"><path fill="#fff7f7" d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10S4.477 0 10 0m0 1.395a8.605 8.605 0 1 0 0 17.21a8.605 8.605 0 0 0 0-17.21m2.048 2.093a6.7 6.7 0 0 1 1.802 1.024q.187.144.363.307q.032.028.062.06c.328.303.626.644.89 1.01l.11.147q.095.142.184.29q.072.116.139.236q.076.134.146.273q.078.155.149.316c.033.073.07.148.1.226q.109.272.197.552l.052.19a7 7 0 0 1 .215 1.087c.007.066.017.136.022.201q.031.323.033.65a7 7 0 0 1-.117 1.27l-.04.217q-.06.284-.14.56c-.509-.233-1.107-.576-1.263-.953c-.284-.68-1.04-1.02-1.348-1.896c-.507-1.45.166-1.412.26-2.312c.044-.422-.26-.51-.661-.338c-.936.393-1.253.242-1.442-.463c-.189-.703 0-.899 0-.899c-.638.07-.662-.707-.331-.903c.23-.132.425-.537.618-.852M9.374 7.797c.59-.27 1.135-.367 1.063-.831c-.07-.459-.236-.801-1.158-.801s-.52 1.265-1.276.51c-.756-.75.165-.556.543-.727c.379-.172.757-.877.095-.927c-.661-.047-.52.292-1.04.1c-.52-.196-.756.679-1.088.557c-.218-.082-.803-.532-1.191-.975a7 7 0 0 0-1.834 2.51c.113 1.307.804 1.993.804 1.993s.355.851 2.483 1.897c0 0 .4.024-.072-.461c-.472-.487-.993-1.095-.402-1.41c.59-.319.757-.292.899.293c.141.584.615.24.661-.319c.048-.557.922-1.14 1.513-1.41m-.45 2.94c1.018 0 .923.317 1.727 1.025c.803.704.378 1.409-.025 1.945c-.401.534-.756 1.14-.945 2.238c-.19 1.094-.686.314-.85.047c-.166-.269-.426-.511-.354-1.63c.07-1.118-.687-.46-.946-1.92c-.26-1.458.378-1.704 1.394-1.704m4.977.964c.271-.173.92.278.78.753c-.143.475-.591.207-.816 0c-.225-.206-.237-.583.036-.753"/></svg></div> <a href="" class="text-menuitem">Global</a>
-                        </div>
-                    </nav>
-                </div>
-
-                <div class="centro">
-                    <div class="card-centro">
-                        <div class="usuario">
-                            <div class="grid-foto-perfil">
-                {% if user.images and user.images[0] %}
-                <img class="fotoperfil" src="{{ user.images[0].url }}" alt="Foto de perfil">
-                {% else %}
-                <img src="{{ url_for('static', filename='img/default_image.png') }}" alt="Sem foto de perfil">
-                {% endif %}
-                                </div>
-                                <div class="grid-nomeperfil">
-                <h1 class="username">{{user.display_name}}</h1></div>
-                <div class="grid-vibe">
-                    <div class="caixa-vibe"><div class="vibe-musical"><h3>Sua vibe musical</h3></div></div></div>
-                
-             </div>  
-
-            
-                    <div class="artistas">
-                        <div class="div-title-artistas">
-                            <h1 class="title-artistas">Meus artistas</h1>
-                        </div>
-                        <div class="img-artistas">
-                    {% for artist in artists['items'] %}
-                    {% if artist.images[1].url %}
-                    <img class="artist-img" src="{{artist.images[1].url}}" alt="">
-                    {% else %}
-                    <img src="{{ url_for('static', filename='img/no_image_artist.png') }}" alt="">
-                    {% endif %}
-                    {% endfor %}
-                    </div>
-                    </div>
-  
-                <!-- {% for genre in genres %}
-                    <spam >{{genre[0]}}</spam>
-                {% endfor %} -->
-             </div>
-            </div>
-
-            <div class="lista-musicas">
-                <div class="card-musicas">
-                    <div class="musicas">
-                        {% for music in musics %}
-                        <iframe class="caixa-musica" data-testid="embed-iframe" style="border-radius:12px"
-                                src="https://open.spotify.com/embed/track/{{music}}?utm_source=generator"
-                                width="100%" height="152" frameborder="0" allowfullscreen=""
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"></iframe>
-                        {% endfor %}  
-                        </div>  
-                    </div>
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='img/icone.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='user.css') }}"
+    />
+  </head>
+  <body>
+    <div class="geral-grid">
+      <div class="sidebar">
+        <div class="logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="42"
+            height="42"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M9 3v18M6 7v10m6-11v12m3-9v6m3-8v10m3-6v2M3 11v2"
+            />
+          </svg>
+          <h1 class="spotwave">SpotWave</h1>
         </div>
-</div>
-</body>
+        <nav>
+          <div class="menu-item" id="dashboard">
+            <div class="svg-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#fff7f7"
+                  d="M13 8V4q0-.425.288-.712T14 3h6q.425 0 .713.288T21 4v4q0 .425-.288.713T20 9h-6q-.425 0-.712-.288T13 8M3 12V4q0-.425.288-.712T4 3h6q.425 0 .713.288T11 4v8q0 .425-.288.713T10 13H4q-.425 0-.712-.288T3 12m10 8v-8q0-.425.288-.712T14 11h6q.425 0 .713.288T21 12v8q0 .425-.288.713T20 21h-6q-.425 0-.712-.288T13 20M3 20v-4q0-.425.288-.712T4 15h6q.425 0 .713.288T11 16v4q0 .425-.288.713T10 21H4q-.425 0-.712-.288T3 20m2-9h4V5H5zm10 8h4v-6h-4zm0-12h4V5h-4zM5 19h4v-2H5zm4-2"
+                />
+              </svg>
+            </div>
+            <a href="" class="text-menuitem">Dashboard</a>
+          </div>
+          <div class="menu-item">
+            <div class="svg-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="#fff7f7"
+                  d="M256 102L20 256l236 154l236-154zm0 54a100 100 0 0 1 100 100a100 100 0 0 1-.504 10.014c-48.123-36.173-110.506-57.542-168.914-56.409c-6.632.13-13.207.566-19.709 1.286A100 100 0 0 1 256 156m-65.568 71.73c55.59.133 116.403 22.059 161.045 57.979A100 100 0 0 1 256 356a100 100 0 0 1-100-100a100 100 0 0 1 3.545-25.943c10.012-1.593 20.354-2.352 30.887-2.327"
+                />
+              </svg>
+            </div>
+            <a href="" class="text-menuitem">Brasil</a>
+          </div>
+          <div class="menu-item">
+            <div class="svg-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill="#fff7f7"
+                  d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10S4.477 0 10 0m0 1.395a8.605 8.605 0 1 0 0 17.21a8.605 8.605 0 0 0 0-17.21m2.048 2.093a6.7 6.7 0 0 1 1.802 1.024q.187.144.363.307q.032.028.062.06c.328.303.626.644.89 1.01l.11.147q.095.142.184.29q.072.116.139.236q.076.134.146.273q.078.155.149.316c.033.073.07.148.1.226q.109.272.197.552l.052.19a7 7 0 0 1 .215 1.087c.007.066.017.136.022.201q.031.323.033.65a7 7 0 0 1-.117 1.27l-.04.217q-.06.284-.14.56c-.509-.233-1.107-.576-1.263-.953c-.284-.68-1.04-1.02-1.348-1.896c-.507-1.45.166-1.412.26-2.312c.044-.422-.26-.51-.661-.338c-.936.393-1.253.242-1.442-.463c-.189-.703 0-.899 0-.899c-.638.07-.662-.707-.331-.903c.23-.132.425-.537.618-.852M9.374 7.797c.59-.27 1.135-.367 1.063-.831c-.07-.459-.236-.801-1.158-.801s-.52 1.265-1.276.51c-.756-.75.165-.556.543-.727c.379-.172.757-.877.095-.927c-.661-.047-.52.292-1.04.1c-.52-.196-.756.679-1.088.557c-.218-.082-.803-.532-1.191-.975a7 7 0 0 0-1.834 2.51c.113 1.307.804 1.993.804 1.993s.355.851 2.483 1.897c0 0 .4.024-.072-.461c-.472-.487-.993-1.095-.402-1.41c.59-.319.757-.292.899.293c.141.584.615.24.661-.319c.048-.557.922-1.14 1.513-1.41m-.45 2.94c1.018 0 .923.317 1.727 1.025c.803.704.378 1.409-.025 1.945c-.401.534-.756 1.14-.945 2.238c-.19 1.094-.686.314-.85.047c-.166-.269-.426-.511-.354-1.63c.07-1.118-.687-.46-.946-1.92c-.26-1.458.378-1.704 1.394-1.704m4.977.964c.271-.173.92.278.78.753c-.143.475-.591.207-.816 0c-.225-.206-.237-.583.036-.753"
+                />
+              </svg>
+            </div>
+            <a href="" class="text-menuitem">Global</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="centro">
+        <div class="card-centro">
+          <div class="usuario">
+            <div class="grid-foto-perfil">
+              {% if user.images and user.images[0] %}
+              <img
+                class="fotoperfil"
+                src="{{ user.images[0].url }}"
+                alt="Foto de perfil"
+              />
+              {% else %}
+              <img
+                src="{{ url_for('static', filename='img/default_image.png') }}"
+                alt="Sem foto de perfil"
+              />
+              {% endif %}
+            </div>
+            <div class="grid-nomeperfil">
+              <h1 class="username">{{user.display_name}}</h1>
+            </div>
+            <div class="grid-vibe">
+              <div class="caixa-vibe">
+                <div class="vibe-musical"><h3>Sua vibe musical</h3></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="artistas">
+            <div class="div-title-artistas">
+              <h1 class="title-artistas">Meus artistas</h1>
+            </div>
+            <div class="img-artistas">
+              {% for artist in artists['items'] %} {% if artist.images[1].url %}
+              <img class="artist-img" src="{{artist.images[1].url}}" alt="" />
+              {% else %}
+              <img
+                src="{{ url_for('static', filename='img/no_image_artist.png') }}"
+                alt=""
+              />
+              {% endif %} {% endfor %}
+            </div>
+          </div>
+
+            {% for genre in genres %}
+                {% set artist = artist_by_genre[genre] %}
+                {% if artist and artist.images and artist.images|length > 0 %}
+                    <img src="{{ artist.images[0].url }}" alt="Capa de {{ artist.name }}">
+                    <span>{{ artist.name }} ({{ genre }})</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+      </div>
+
+      <div class="lista-musicas">
+        <div class="card-musicas">
+          <div class="musicas">
+            {% for music in musics %}
+            <iframe
+              class="caixa-musica"
+              data-testid="embed-iframe"
+              style="border-radius: 12px"
+              src="https://open.spotify.com/embed/track/{{music}}?utm_source=generator"
+              width="100%"
+              height="152"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

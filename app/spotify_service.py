@@ -38,4 +38,24 @@ def get_user_top_musics(access_token, time_range, limit, offset):
 
     return top_tracks
 
+def get_top_artist_by_genre(top_artists, top_genres):
+    target_genres = [g[0].lower() for g in top_genres]
+    artists_by_genre = {}
 
+    seen_artist_ids = set()
+
+    for artist in top_artists['items']:
+        artist_id = artist['id']
+        if artist_id in seen_artist_ids:
+            continue
+        is_mapped = False
+
+        for genre in artist['genres']:
+            if genre in target_genres and genre not in artists_by_genre:
+                artists_by_genre[genre] = artist
+                is_mapped = True
+                seen_artist_ids.add(artist_id)
+                break
+        if len(artists_by_genre) == len(top_genres):
+            break
+    return artists_by_genre
