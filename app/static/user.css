@@ -4,9 +4,16 @@
   --branco-frio: #E4E6E6;
 
 }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--bg-color);
 
 }
@@ -15,10 +22,10 @@ body {
   grid-template-columns: 255px 1fr 340px;
   grid-template-rows: auto;
   background-color: var(--bg-color);
-
+  height: 100%;
+  padding: 20px;
 }
 .sidebar{
-
   display: flex;
   flex-direction: column;
   gap: 35px;
@@ -57,8 +64,7 @@ body {
   background-color: var(--branco-frio);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-  margin-top: 20px;
-  height: 900px;
+  height: 100%;
 }
 .fotoperfil{
   border-radius: 50%;
@@ -119,9 +125,7 @@ body {
   padding-left: 20px;
 }
 .card-musicas{
-  margin-top: 20px;
-  margin-right: 20px;
-  height: 900px;
+  height: 100%;
   background-color: white;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
