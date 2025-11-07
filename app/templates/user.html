@@ -7,27 +7,49 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icone.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}">
 </head>
-<body>
-    <div class="container">
-    
-<main>
-    <div class="main-content">
-        <section>
-            <h2 class="title">Meu Dashboard</h2>
-            <div class="box-user">
-                
+<body>       
+<div class="geral-grid">
+
+                <div class="sidebar">
+                    <div class="logo">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v18M6 7v10m6-11v12m3-9v6m3-8v10m3-6v2M3 11v2"/></svg>
+                        <h1 class="spotwave">SpotWave</h1>
+                    </div>
+
+                        <div class="menu-item">
+                            <div class="svg-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff7f7" d="M13 8V4q0-.425.288-.712T14 3h6q.425 0 .713.288T21 4v4q0 .425-.288.713T20 9h-6q-.425 0-.712-.288T13 8M3 12V4q0-.425.288-.712T4 3h6q.425 0 .713.288T11 4v8q0 .425-.288.713T10 13H4q-.425 0-.712-.288T3 12m10 8v-8q0-.425.288-.712T14 11h6q.425 0 .713.288T21 12v8q0 .425-.288.713T20 21h-6q-.425 0-.712-.288T13 20M3 20v-4q0-.425.288-.712T4 15h6q.425 0 .713.288T11 16v4q0 .425-.288.713T10 21H4q-.425 0-.712-.288T3 20m2-9h4V5H5zm10 8h4v-6h-4zm0-12h4V5h-4zM5 19h4v-2H5zm4-2"/></svg></div> <a href="" class="text-menuitem">Dashboard</a>
+                        </div>
+                        <div class="menu-item">
+                            <div class="svg-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="#fff7f7" d="M256 102L20 256l236 154l236-154zm0 54a100 100 0 0 1 100 100a100 100 0 0 1-.504 10.014c-48.123-36.173-110.506-57.542-168.914-56.409c-6.632.13-13.207.566-19.709 1.286A100 100 0 0 1 256 156m-65.568 71.73c55.59.133 116.403 22.059 161.045 57.979A100 100 0 0 1 256 356a100 100 0 0 1-100-100a100 100 0 0 1 3.545-25.943c10.012-1.593 20.354-2.352 30.887-2.327"/></svg></div> <a href="" class="text-menuitem">Brasil</a>
+                        </div>
+                        <div class="menu-item">
+                            <div class="svg-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20"><path fill="#fff7f7" d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10S4.477 0 10 0m0 1.395a8.605 8.605 0 1 0 0 17.21a8.605 8.605 0 0 0 0-17.21m2.048 2.093a6.7 6.7 0 0 1 1.802 1.024q.187.144.363.307q.032.028.062.06c.328.303.626.644.89 1.01l.11.147q.095.142.184.29q.072.116.139.236q.076.134.146.273q.078.155.149.316c.033.073.07.148.1.226q.109.272.197.552l.052.19a7 7 0 0 1 .215 1.087c.007.066.017.136.022.201q.031.323.033.65a7 7 0 0 1-.117 1.27l-.04.217q-.06.284-.14.56c-.509-.233-1.107-.576-1.263-.953c-.284-.68-1.04-1.02-1.348-1.896c-.507-1.45.166-1.412.26-2.312c.044-.422-.26-.51-.661-.338c-.936.393-1.253.242-1.442-.463c-.189-.703 0-.899 0-.899c-.638.07-.662-.707-.331-.903c.23-.132.425-.537.618-.852M9.374 7.797c.59-.27 1.135-.367 1.063-.831c-.07-.459-.236-.801-1.158-.801s-.52 1.265-1.276.51c-.756-.75.165-.556.543-.727c.379-.172.757-.877.095-.927c-.661-.047-.52.292-1.04.1c-.52-.196-.756.679-1.088.557c-.218-.082-.803-.532-1.191-.975a7 7 0 0 0-1.834 2.51c.113 1.307.804 1.993.804 1.993s.355.851 2.483 1.897c0 0 .4.024-.072-.461c-.472-.487-.993-1.095-.402-1.41c.59-.319.757-.292.899.293c.141.584.615.24.661-.319c.048-.557.922-1.14 1.513-1.41m-.45 2.94c1.018 0 .923.317 1.727 1.025c.803.704.378 1.409-.025 1.945c-.401.534-.756 1.14-.945 2.238c-.19 1.094-.686.314-.85.047c-.166-.269-.426-.511-.354-1.63c.07-1.118-.687-.46-.946-1.92c-.26-1.458.378-1.704 1.394-1.704m4.977.964c.271-.173.92.278.78.753c-.143.475-.591.207-.816 0c-.225-.206-.237-.583.036-.753"/></svg></div> <a href="" class="text-menuitem">Global</a>
+                        </div>
+                </div>
+
+                <div class="centro">
+                    <div class="card-centro">
+                        <div class="usuario">
+                            <div class="grid-foto-perfil">
                 {% if user.images and user.images[0] %}
                 <img class="fotoperfil" src="{{ user.images[0].url }}" alt="Foto de perfil">
                 {% else %}
                 <img src="{{ url_for('static', filename='img/default_image.png') }}" alt="Sem foto de perfil">
                 {% endif %}
-                <h1 class="username">{{user.display_name}}</h1>
-            </div>
+                                </div>
+                                <div class="grid-nomeperfil">
+                <h1 class="username">{{user.display_name}}</h1></div>
+                <div class="grid-vibe">
+                    <div class="caixa-vibe"><div class="vibe-musical"><h3>Sua vibe musical</h3></div></div></div>
+                
+             </div>  
 
             
-            <div id="artists_list">
-                <h1 class="title-artistas">Meus artistas</h1>
-                <div class="listagem">
+                    <div class="artistas">
+                        <div class="div-title-artistas">
+                            <h1 class="title-artistas">Meus artistas</h1>
+                        </div>
+                        <div class="img-artistas">
                     {% for artist in artists['items'] %}
                     {% if artist.images[1].url %}
                     <img class="artist-img" src="{{artist.images[1].url}}" alt="">
@@ -35,59 +57,28 @@
                     <img src="{{ url_for('static', filename='img/no_image_artist.png') }}" alt="">
                     {% endif %}
                     {% endfor %}
-                </div>
+                    </div>
+                    </div>
+  
+                <!-- {% for genre in genres %}
+                    <spam >{{genre[0]}}</spam>
+                {% endfor %} -->
+             </div>
             </div>
 
-            <div class="generos" id="genres_list">
-                <h1 class="title-generos" >Gêneros mais escutados</h1>
-                <div class="generos-grid">
-                {% for genre in genres %}
-                <div class="nome-generos">
-                    <spam >{{genre[0]}}</spam>
-                </div>
-                {% endfor %}
-                </div>
-            </div>
-            
-            <div class="card-musicas">
-                <h1 class="minhas">Minhas músicas</h1>
-                <div id="musica" class="box-musica">
-                    {% for music in musics %}
-                    <iframe data-testid="embed-iframe" style="border-radius:12px"
-                            src="https://open.spotify.com/embed/track/{{music}}?utm_source=generator"
-                            width="100%" height="152" frameborder="0" allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"></iframe>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-    </div>
-</main>
-<nav class="sidebar">
-        
-        <a id="p.home" href="/" class="menu-item">
-            <p class="text-sidebar1" >Home</p>
-        </a>
-        <a id="p.meudash" href="/dashboard" class="menu-item">
-            <p class="text-sidebar" >Meu dashboard</p>
-        </a>
-        <div class="box-nav-item">
-        <a id="p.amigos" href="/amigos" class="menu-item">
-            <span class="text-sidebar">Amigos</span> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#278B42" d="M9 7c-3.3 0-6 2.7-6 6c0 1.984.977 3.75 2.469 4.844C2.832 19.152 1 21.864 1 25h2c0-3.324 2.676-6 6-6s6 2.676 6 6h2c0-3.324 2.676-6 6-6s6 2.676 6 6h2c0-3.137-1.832-5.848-4.469-7.156A6 6 0 0 0 29 13c0-3.3-2.7-6-6-6s-6 2.7-6 6c0 1.984.977 3.75 2.469 4.844A8.06 8.06 0 0 0 16 21.125a8.06 8.06 0 0 0-3.469-3.281A6 6 0 0 0 15 13c0-3.3-2.7-6-6-6m0 2c2.223 0 4 1.777 4 4s-1.777 4-4 4s-4-1.777-4-4s1.777-4 4-4m14 0c2.223 0 4 1.777 4 4s-1.777 4-4 4s-4-1.777-4-4s1.777-4 4-4"/></svg>
-        </a>
+            <div class="lista-musicas">
+                <div class="card-musicas">
+                    <div class="musicas">
+                        {% for music in musics %}
+                        <iframe class="caixa-musica" data-testid="embed-iframe" style="border-radius:12px"
+                                src="https://open.spotify.com/embed/track/{{music}}?utm_source=generator"
+                                width="100%" height="152" frameborder="0" allowfullscreen=""
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                loading="lazy"></iframe>
+                        {% endfor %}  
+                        </div>  
+                    </div>
         </div>
-         <div class="box-nav-item">
-        <a href=""  class="menu-item">
-            <span class="text-sidebar">Brasil</span> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="#278B42" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.857 14.675A5 5 0 0 1 12 14a5 5 0 0 0-7 0V5a5 5 0 0 1 7 0a5 5 0 0 0 7 0v6M5 21v-7m16.121 6.121a3 3 0 1 0-4.242 0Q17.506 20.749 19 22q1.577-1.335 2.121-1.879M19 18v.01"/></svg>
-        </a>
-        </div>
-        <div class="box-nav-item">
-        <a id="p.global" href="/global" class="menu-item">
-            <span class="text-sidebar">Global</span> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024"><path fill="#278B42" d="M854.4 800.9c.2-.3.5-.6.7-.9C920.6 722.1 960 621.7 960 512s-39.4-210.1-104.8-288c-.2-.3-.5-.5-.7-.8c-1.1-1.3-2.1-2.5-3.2-3.7c-.4-.5-.8-.9-1.2-1.4l-4.1-4.7l-.1-.1c-1.5-1.7-3.1-3.4-4.6-5.1l-.1-.1c-3.2-3.4-6.4-6.8-9.7-10.1l-.1-.1l-4.8-4.8l-.3-.3c-1.5-1.5-3-2.9-4.5-4.3c-.5-.5-1-1-1.6-1.5c-1-1-2-1.9-3-2.8c-.3-.3-.7-.6-1-1C736.4 109.2 629.5 64 512 64s-224.4 45.2-304.3 119.2c-.3.3-.7.6-1 1c-1 .9-2 1.9-3 2.9c-.5.5-1 1-1.6 1.5c-1.5 1.4-3 2.9-4.5 4.3l-.3.3l-4.8 4.8l-.1.1c-3.3 3.3-6.5 6.7-9.7 10.1l-.1.1c-1.6 1.7-3.1 3.4-4.6 5.1l-.1.1c-1.4 1.5-2.8 3.1-4.1 4.7c-.4.5-.8.9-1.2 1.4c-1.1 1.2-2.1 2.5-3.2 3.7c-.2.3-.5.5-.7.8C103.4 301.9 64 402.3 64 512s39.4 210.1 104.8 288c.2.3.5.6.7.9l3.1 3.7c.4.5.8.9 1.2 1.4l4.1 4.7c0 .1.1.1.1.2c1.5 1.7 3 3.4 4.6 5l.1.1c3.2 3.4 6.4 6.8 9.6 10.1l.1.1c1.6 1.6 3.1 3.2 4.7 4.7l.3.3c3.3 3.3 6.7 6.5 10.1 9.6c80.1 74 187 119.2 304.5 119.2s224.4-45.2 304.3-119.2a300 300 0 0 0 10-9.6l.3-.3c1.6-1.6 3.2-3.1 4.7-4.7l.1-.1c3.3-3.3 6.5-6.7 9.6-10.1l.1-.1c1.5-1.7 3.1-3.3 4.6-5c0-.1.1-.1.1-.2c1.4-1.5 2.8-3.1 4.1-4.7c.4-.5.8-.9 1.2-1.4a99 99 0 0 0 3.3-3.7m4.1-142.6c-13.8 32.6-32 62.8-54.2 90.2a444 444 0 0 0-81.5-55.9c11.6-46.9 18.8-98.4 20.7-152.6H887c-3 40.9-12.6 80.6-28.5 118.3M887 484H743.5c-1.9-54.2-9.1-105.7-20.7-152.6c29.3-15.6 56.6-34.4 81.5-55.9A373.86 373.86 0 0 1 887 484M658.3 165.5c39.7 16.8 75.8 40 107.6 69.2a394.7 394.7 0 0 1-59.4 41.8c-15.7-45-35.8-84.1-59.2-115.4c3.7 1.4 7.4 2.9 11 4.4m-90.6 700.6c-9.2 7.2-18.4 12.7-27.7 16.4V697a389.1 389.1 0 0 1 115.7 26.2c-8.3 24.6-17.9 47.3-29 67.8c-17.4 32.4-37.8 58.3-59 75.1m59-633.1c11 20.6 20.7 43.3 29 67.8A389.1 389.1 0 0 1 540 327V141.6c9.2 3.7 18.5 9.1 27.7 16.4c21.2 16.7 41.6 42.6 59 75M540 640.9V540h147.5c-1.6 44.2-7.1 87.1-16.3 127.8l-.3 1.2A445 445 0 0 0 540 640.9m0-156.9V383.1c45.8-2.8 89.8-12.5 130.9-28.1l.3 1.2c9.2 40.7 14.7 83.5 16.3 127.8zm-56 56v100.9c-45.8 2.8-89.8 12.5-130.9 28.1l-.3-1.2c-9.2-40.7-14.7-83.5-16.3-127.8zm-147.5-56c1.6-44.2 7.1-87.1 16.3-127.8l.3-1.2c41.1 15.6 85 25.3 130.9 28.1V484zM484 697v185.4c-9.2-3.7-18.5-9.1-27.7-16.4c-21.2-16.7-41.7-42.7-59.1-75.1c-11-20.6-20.7-43.3-29-67.8c37.2-14.6 75.9-23.3 115.8-26.1m0-370a389.1 389.1 0 0 1-115.7-26.2c8.3-24.6 17.9-47.3 29-67.8c17.4-32.4 37.8-58.4 59.1-75.1c9.2-7.2 18.4-12.7 27.7-16.4V327zM365.7 165.5c3.7-1.5 7.3-3 11-4.4c-23.4 31.3-43.5 70.4-59.2 115.4c-21-12-40.9-26-59.4-41.8c31.8-29.2 67.9-52.4 107.6-69.2M165.5 365.7c13.8-32.6 32-62.8 54.2-90.2c24.9 21.5 52.2 40.3 81.5 55.9c-11.6 46.9-18.8 98.4-20.7 152.6H137c3-40.9 12.6-80.6 28.5-118.3M137 540h143.5c1.9 54.2 9.1 105.7 20.7 152.6a444 444 0 0 0-81.5 55.9A373.86 373.86 0 0 1 137 540m228.7 318.5c-39.7-16.8-75.8-40-107.6-69.2c18.5-15.8 38.4-29.7 59.4-41.8c15.7 45 35.8 84.1 59.2 115.4c-3.7-1.4-7.4-2.9-11-4.4m292.6 0c-3.7 1.5-7.3 3-11 4.4c23.4-31.3 43.5-70.4 59.2-115.4c21 12 40.9 26 59.4 41.8a373.8 373.8 0 0 1-107.6 69.2"/></svg>
-        </a>
-        </div>
-    </nav>
 </div>
 </body>
 </html>
