@@ -114,29 +114,39 @@
             </div>
           </div>
 
+          
           <div class="artistas">
-            <div class="div-title-artistas">
-              <h1 class="title-artistas">Meus artistas</h1>
+              <div class="div-title-artistas">
+                  <h1 class="title-artistas">Meus artistas</h1>
+                </div>
+                <div class="img-artistas">
+                    {% for artist in artists['items'] %} {% if artist.images[1].url %}
+                    <img class="artist-img" src="{{artist.images[1].url}}" alt="" />
+                    {% else %}
+                    <img
+                    src="{{ url_for('static', filename='img/no_image_artist.png') }}"
+                    alt=""
+                    />
+                    {% endif %} {% endfor %}
+                </div>
             </div>
-            <div class="img-artistas">
-              {% for artist in artists['items'] %} {% if artist.images[1].url %}
-              <img class="artist-img" src="{{artist.images[1].url}}" alt="" />
-              {% else %}
-              <img
-                src="{{ url_for('static', filename='img/no_image_artist.png') }}"
-                alt=""
-              />
-              {% endif %} {% endfor %}
-            </div>
-          </div>
 
-            {% for genre in genres %}
-                {% set artist = artist_by_genre[genre] %}
-                {% if artist and artist.images and artist.images|length > 0 %}
-                    <img src="{{ artist.images[0].url }}" alt="Capa de {{ artist.name }}">
-                    <span>{{ artist.name }} ({{ genre }})</span>
-                {% endif %}
-            {% endfor %}
+            <div class="genres">
+                <p>O que estou ouvindo</p>
+                <div class="all-genres">
+                    {% for genre in genres %}
+                    {% set artist = artist_by_genre[genre] %}
+                    {% if artist and artist.images and artist.images|length > 0 %}
+                    <div class="genre">
+                        <img src="{{ artist.images[0].url }}" alt="Capa de {{ artist.name }}">
+                        <span>{{ genre }}</span>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            
         </div>
       </div>
 
