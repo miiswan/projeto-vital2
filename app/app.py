@@ -6,6 +6,7 @@ from flask import Flask, redirect, url_for, request, session, render_template
 from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics, get_top_artist_by_genre
 import os
 from collections import Counter
+import random
 
 # cria a aplicação flask
 app = Flask(__name__)
@@ -79,10 +80,29 @@ def user_profile():
     for genre in genres:
         genre_lower = genre[0].lower()
         genres_to_lower_case.append(genre_lower)
-    print(genres_to_lower_case)
 
+    #Buscando artista mais escutado de cada gênero
     most_listend_artist_by_genre = get_top_artist_by_genre(top_artists_to_format, genres)
 
+    #Sorteando os linear-gradients para background do gênero
+    #Soretando cor
+    def draw_color_rgba(opacity=0.9):
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        return f'rgba({r}, {g}, {b}, {opacity})'
+    #Sorteando gradientes
+    def sort_linear_gradient():
+        final_color = draw_color_rgba()
+        return f'linear-gradient(0deg, rgba(0,0,0,0.6) 0%, {final_color} 100%)'
+    #Sorteando as 5 cores
+    def generate_gradients(size=5):
+        gradients = []
+        for i in range(size):
+            gradient = sort_linear_gradient()
+            gradients.append(gradient)
+        return gradients
+    print(generate_gradients())
     #Coletando apenas os ids das músicas mais escutadas
     top_tracks_ids = []
     for track in top_tracks['items']:
@@ -99,7 +119,8 @@ def user_profile():
         artists=top_artists,
         genres=genres_to_lower_case,
         musics=top_tracks_ids,
-        artist_by_genre=most_listend_artist_by_genre
+        artist_by_genre=most_listend_artist_by_genre,
+        genre_background_colors=generate_gradients()
 )
 
 @app.route('/logout')

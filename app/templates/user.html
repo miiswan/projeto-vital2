@@ -137,9 +137,10 @@
                     {% for genre in genres %}
                     {% set artist = artist_by_genre[genre] %}
                     {% if artist and artist.images and artist.images|length > 0 %}
-                    <div class="genre">
-                        <img src="{{ artist.images[0].url }}" alt="Capa de {{ artist.name }}">
-                        <span>{{ genre }}</span>
+                    <div class="genre" style="background-image: url('{{ artist.images[0].url }}');">
+                      <div style="background: {{genre_background_colors[loop.index0]}};">
+                        <spam>{{ genre }}</spam>
+                      </div>
                     </div>
                     {% endif %}
                     {% endfor %}
