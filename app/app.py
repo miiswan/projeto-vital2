@@ -63,11 +63,12 @@ def user_profile():
     
     access_token = token_info['access_token']
 
-    top_tracks = get_user_top_musics(access_token, time_range='medium_term', limit=5, offset=0)
+    top5_tracks = get_user_top_musics(access_token, time_range='medium_term', limit=5, offset=0)
 
     top_artists = get_user_top_artists(access_token, time_range='medium_term', limit=5, offset=0)
 
     top_artists_to_format = get_user_top_artists(access_token, time_range='medium_term', limit=50, offset=0)
+
 
     # Analisando os dados dos 50 artistas mais escutados para saber os gêneros mais escutados
     for artist in top_artists_to_format['items']:
@@ -102,13 +103,13 @@ def user_profile():
             gradient = sort_linear_gradient()
             gradients.append(gradient)
         return gradients
-    print(generate_gradients())
-    #Coletando apenas os ids das músicas mais escutadas
-    top_tracks_ids = []
-    for track in top_tracks['items']:
+    
+    #Coletando apenas os ids do top5 músicas mais escutadas
+    top5_tracks_ids = []
+    for track in top5_tracks['items']:
         url = track['external_urls']['spotify']
         idTrack = url.split('/')[-1]
-        top_tracks_ids.append(idTrack)
+        top5_tracks_ids.append(idTrack)
 
     #retornando a página user.html com os dados do usuário, dos artistas mais escutaso, gêneros mais escutados
     user_image = user_data['images'][0]['url'] if user_data.get('images') else url_for('static', filename='default_user.png')
@@ -118,7 +119,7 @@ def user_profile():
         user_image=user_image,
         artists=top_artists,
         genres=genres_to_lower_case,
-        musics=top_tracks_ids,
+        musics=top5_tracks_ids,
         artist_by_genre=most_listend_artist_by_genre,
         genre_background_colors=generate_gradients()
 )
