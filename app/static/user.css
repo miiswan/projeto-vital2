@@ -201,3 +201,31 @@ body {
 
   color: white;
 }
+
+.mini-user{
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mini-user img{
+  height: 60px;
+  width: 60px;
+
+  border-radius: 100%;
+}
+.mini-user p{
+  color: white;
+  font-weight: 500;
+}
+.mini-user a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  padding: 5px;
+}
+.mini-user a:hover{
+  background-color: rgb(40, 91, 92);
+
+}

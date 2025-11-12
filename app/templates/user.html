@@ -85,6 +85,38 @@
             <a href="" class="text-menuitem">Global</a>
           </div>
         </nav>
+        <div class="mini-user">
+          {% if user.images and user.images[0] %}
+          <img
+            class="fotoperfil-mini-user"
+            src="{{ user.images[0].url }}"
+            alt="Foto de perfil"
+          />
+          {% else %}
+          <img
+            src="{{ url_for('static', filename='img/default_image.png') }}"
+            alt="Sem foto de perfil"
+          />
+          {% endif %}
+          <p>{{user.display_name}}</p>
+          <a href="/logout" class="logout">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 3.99994H19C19.5304 3.99994 20.0391 4.21065 20.4142 4.58573C20.7893 4.9608 21 5.46951 21 5.99994V6.99994M16 19.9999H19C19.5304 19.9999 20.0391 19.7892 20.4142 19.4142C20.7893 19.0391 21 18.5304 21 17.9999V16.9999M16.001 11.9999H21.001M21.001 11.9999L19.001 9.99994M21.001 11.9999L19.001 13.9999M4.425 19.4279L10.425 21.2279C10.7237 21.3176 11.0392 21.3362 11.3463 21.2822C11.6535 21.2282 11.9437 21.1031 12.1939 20.9169C12.4441 20.7308 12.6473 20.4887 12.7872 20.21C12.9272 19.9313 13.0001 19.6238 13 19.3119V4.68794C13.0001 4.37609 12.9272 4.06855 12.7872 3.78987C12.6473 3.5112 12.4441 3.26911 12.1939 3.08295C11.9437 2.89679 11.6535 2.77172 11.3463 2.71771C11.0392 2.66371 10.7237 2.68228 10.425 2.77194L4.425 4.57194C4.01302 4.6956 3.65189 4.9488 3.39519 5.29394C3.13849 5.63909 2.99991 6.0578 3 6.48794V17.5119C2.99991 17.9421 3.13849 18.3608 3.39519 18.7059C3.65189 19.0511 4.01302 19.3043 4.425 19.4279Z"
+                stroke="#FFF7F7"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
 
       <div class="centro">
@@ -114,40 +146,40 @@
             </div>
           </div>
 
-          
           <div class="artistas">
-              <div class="div-title-artistas">
-                  <h1 class="title-artistas">Meus artistas</h1>
-                </div>
-                <div class="img-artistas">
-                    {% for artist in artists['items'] %} {% if artist.images[1].url %}
-                    <img class="artist-img" src="{{artist.images[1].url}}" alt="" />
-                    {% else %}
-                    <img
-                    src="{{ url_for('static', filename='img/no_image_artist.png') }}"
-                    alt=""
-                    />
-                    {% endif %} {% endfor %}
-                </div>
+            <div class="div-title-artistas">
+              <h1 class="title-artistas">Meus artistas</h1>
             </div>
-
-            <div class="genres">
-                <p>O que estou ouvindo</p>
-                <div class="all-genres">
-                    {% for genre in genres %}
-                    {% set artist = artist_by_genre[genre] %}
-                    {% if artist and artist.images and artist.images|length > 0 %}
-                    <div class="genre" style="background-image: url('{{ artist.images[0].url }}');">
-                      <div style="background: {{genre_background_colors[loop.index0]}};">
-                        <spam>{{ genre }}</spam>
-                      </div>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
+            <div class="img-artistas">
+              {% for artist in artists['items'] %} {% if artist.images[1].url %}
+              <img class="artist-img" src="{{artist.images[1].url}}" alt="" />
+              {% else %}
+              <img
+                src="{{ url_for('static', filename='img/no_image_artist.png') }}"
+                alt=""
+              />
+              {% endif %} {% endfor %}
             </div>
+          </div>
 
-            
+          <div class="genres">
+            <p>O que estou ouvindo</p>
+            <div class="all-genres">
+              {% for genre in genres %} {% set artist = artist_by_genre[genre]
+              %} {% if artist and artist.images and artist.images|length > 0 %}
+              <div
+                class="genre"
+                style="background-image: url('{{ artist.images[0].url }}');"
+              >
+                <div
+                  style="background: {{genre_background_colors[loop.index0]}};"
+                >
+                  <spam>{{ genre }}</spam>
+                </div>
+              </div>
+              {% endif %} {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
 
