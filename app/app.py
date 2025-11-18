@@ -124,6 +124,10 @@ def user_profile():
         genre_background_colors=generate_gradients()
 )
 
+@app.route('/index')
+def brasil():
+    return render_template('index.html')
+
 @app.route('/logout')
 def logout():
     session.clear() # Limpa todos os dados da sessão
