@@ -124,9 +124,13 @@ def user_profile():
         genre_background_colors=generate_gradients()
 )
 
-@app.route('/index')
+@app.route('/brasil')
 def brasil():
-    return render_template('index.html')
+    return render_template('brasil.html')
+
+@app.route('/global')
+def Global():
+    return render_template('global.html')
 
 @app.route('/logout')
 def logout():

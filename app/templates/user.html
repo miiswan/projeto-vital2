@@ -36,7 +36,7 @@
           <h1 class="spotwave">SpotWave</h1>
         </div>
         <nav>
-          <div class="menu-item" id="dashboard">
+          <a href="/user" class="menu-item" id="dashboard">
             <div class="svg-circle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,9 +50,9 @@
                 />
               </svg>
             </div>
-            <a href="" class="text-menuitem">Dashboard</a>
-          </div>
-          <div class="menu-item">
+            <p class="text-menuitem">Dashboard</p>
+          </a>
+          <a href="/brasil" class="menu-item">
             <div class="svg-circle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,9 +66,9 @@
                 />
               </svg>
             </div>
-            <a href="" class="text-menuitem">Brasil</a>
-          </div>
-          <div class="menu-item">
+            <p class="text-menuitem">Brasil</p>
+          </a>
+          <a href="/global" class="menu-item">
             <div class="svg-circle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +82,8 @@
                 />
               </svg>
             </div>
-            <a href="" class="text-menuitem">Global</a>
-          </div>
+            <p class="text-menuitem">Global</p>
+          </a>
         </nav>
         <div class="mini-user">
           {% if user.images and user.images[0] %}
