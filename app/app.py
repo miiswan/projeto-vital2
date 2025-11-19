@@ -144,7 +144,19 @@ def brasil():
 
 @app.route('/global')
 def Global():
-    return render_template('global.html')
+    sp_oauth = create_spotify_oauth()
+    # pega o código que o Spotify envia
+    code = request.args.get('code')
+    # troca o código pelo token de acesso
+    token_info = sp_oauth.get_access_token(code)
+
+    session['token_info'] = token_info
+    # pega os dados do usuário logado
+    user_data = get_user_data(token_info['access_token'])
+
+    session['user_data'] = user_data
+
+    return render_template('global.html', user=user_data)
 
 @app.route('/logout')
 def logout():
