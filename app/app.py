@@ -113,6 +113,7 @@ def user_profile():
 
     #retornando a página user.html com os dados do usuário, dos artistas mais escutaso, gêneros mais escutados
     user_image = user_data['images'][0]['url'] if user_data.get('images') else url_for('static', filename='default_user.png')
+
     return render_template(
     'user.html',
         user=user_data,
@@ -126,7 +127,20 @@ def user_profile():
 
 @app.route('/brasil')
 def brasil():
-    return render_template('brasil.html')
+    sp_oauth = create_spotify_oauth()
+    # pega o código que o Spotify envia
+    code = request.args.get('code')
+    # troca o código pelo token de acesso
+    token_info = sp_oauth.get_access_token(code)
+
+    session['token_info'] = token_info
+    # pega os dados do usuário logado
+    user_data = get_user_data(token_info['access_token'])
+
+    session['user_data'] = user_data
+
+
+    return render_template('brasil.html', user=user_data)
 
 @app.route('/global')
 def Global():

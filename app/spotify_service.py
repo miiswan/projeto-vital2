@@ -1,7 +1,7 @@
 # responsavel por lidar com o spotify
 import os # acessa as varoáveis do sistema
 import spotipy # acessa a api do spotify
-from spotipy.oauth2 import SpotifyOAuth # cuida do login com conta
+from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials # cuida do login com conta
 from dotenv import load_dotenv # carrega o conteudo do .env
 
 # carrega variveis do .env
