@@ -118,10 +118,7 @@ body {
 .grid-nomeperfil{
   grid-column: 2;
   grid-row: 1;
-}
-.grid-vibe{
-  grid-column: 2;
-  grid-row: 2;
+  margin-top: 60px;
 }
 
 .artistas{
