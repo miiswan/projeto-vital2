@@ -74,4 +74,4 @@ class SpotifyService:
 
         return artists_by_genre
     
-    
+

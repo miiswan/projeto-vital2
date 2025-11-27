@@ -139,9 +139,37 @@
             </div>
             <div class="grid-nomeperfil">
               <h1 class="username">{{user.display_name}}</h1>
+            
+          </div>
+          <div class="grafico-container">
+            <canvas id="genreChart"></canvas>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <script>
+            async function loadGenreChart() {
+                const response = await fetch('/top-genres');
+                const data = await response.json();
+
+                const labels = Object.keys(data);
+                const values = Object.values(data);
+
+                new Chart(document.getElementById('genreChart'), {
+                    type: 'pie',  // coloque "bar" se quiser barras
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Gêneros mais ouvidos',
+                            data: values,
+                        }]
+                    }
+                });
+            }
+
+            loadGenreChart();
+            </script>
             </div>
           </div>
-
           <div class="artistas">
             <div class="div-title-artistas">
               <h1 class="title-artistas">Meus artistas</h1>

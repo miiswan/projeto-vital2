@@ -2,8 +2,8 @@
 #importa o flask, e as funcoes do arquivo spotify_service
 from os import access
 
-from flask import Flask, redirect, url_for, request, session, render_template
-from spotify_service import SpotifyService
+from flask import Flask, redirect, url_for, request, session, render_template, jsonify
+from spotify_service import SpotifyService 
 import os
 from collections import Counter
 import random
@@ -131,6 +131,38 @@ def user_profile():
         artist_by_genre=most_listend_artist_by_genre,
         genre_background_colors=generate_gradients()
 )
+
+
+@app.route("/top-genres")
+def top_genres():
+    token_info = session.get("token_info")
+
+    if not token_info:
+        return jsonify({"error": "Usuário não autenticado"}), 401
+
+    access_token = token_info["access_token"]
+    spotify_service.set_access_token(access_token)
+
+    # pega 50 artistas mais escutados 
+    top_artists = spotify_service.get_user_top_artists(
+        time_range="medium_term",
+        limit=50,
+        offset=0
+    )
+
+    genre_counts = {}
+
+    for artist in top_artists.get("items", []):
+        for genre in artist.get("genres", []):
+            genre_counts[genre] = genre_counts.get(genre, 0) + 1
+
+    # ordena do maior pro menor
+    sorted_genres = sorted(genre_counts.items(), key=lambda x: x[1], reverse=True)
+
+    # pega apenas top 10
+    top10 = dict(sorted_genres[:10])
+
+    return jsonify(top10)
 
 
 BR_TOP50_ID = "3g3WzU7ST7QKj7dXjntT0t"
