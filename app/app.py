@@ -134,15 +134,15 @@ def user_profile():
 
 @app.route('/brasil')
 def brasil():
-    sp_oauth = create_spotify_oauth()
     # pega o código que o Spotify envia
     code = request.args.get('code')
     # troca o código pelo token de acesso
-    token_info = sp_oauth.get_access_token(code)
+    token_info = spotify_service.oauth.get_access_token(code)
 
     session['token_info'] = token_info
+    spotify_service.set_access_token(token_info['access_token'])
     # pega os dados do usuário logado
-    user_data = get_user_data(token_info['access_token'])
+    user_data = spotify_service.get_user_data()
 
     session['user_data'] = user_data
 
@@ -151,15 +151,15 @@ def brasil():
 
 @app.route('/global')
 def Global():
-    sp_oauth = create_spotify_oauth()
     # pega o código que o Spotify envia
     code = request.args.get('code')
     # troca o código pelo token de acesso
-    token_info = sp_oauth.get_access_token(code)
+    token_info = spotify_service.oauth.get_access_token(code)
 
     session['token_info'] = token_info
+    spotify_service.set_access_token(token_info['access_token'])
     # pega os dados do usuário logado
-    user_data = get_user_data(token_info['access_token'])
+    user_data = spotify_service.get_user_data()
 
     session['user_data'] = user_data
 
