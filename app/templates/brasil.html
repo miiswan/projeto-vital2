@@ -122,17 +122,19 @@
           <p id="info">8.712.670 salvamentos • 50 músicas, cerca de 2h 15min</p>
         </div>
         <div class="musics">
-          <iframe
-            data-testid="embed-iframe"
-            style="border-radius: 12px"
-            src="https://open.spotify.com/embed/track/7iN1s7xHE4ifF5povM6A48?utm_source=generator&theme=0"
-            width="100%"
-            height="80"
-            frameborder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
+          {% for music in musics %}
+            <iframe
+              data-testid="embed-iframe"
+              style="border-radius: 12px"
+              src="https://open.spotify.com/embed/track/{{music}}?utm_source=generator&theme=0"
+              width="100%"
+              height="80"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            {% endfor %}
         </div>
       </div>
     </div>

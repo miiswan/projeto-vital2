@@ -46,6 +46,11 @@ class SpotifyService:
             offset=offset,
             time_range=time_range
         )
+    
+    def get_playlist_tracks(self, playlist_id: str, limit: int =50, offset: int=0):
+        if not self.sp:
+            raise RuntimeError("Spotify client não inicializado. Chame set_access_token() antes.")
+        return self.sp.playlist_items(playlist_id, limit=limit, offset=offset)
 
     @staticmethod
     def get_top_artist_by_genre(top_artists, top_genres):
@@ -68,3 +73,5 @@ class SpotifyService:
                 break
 
         return artists_by_genre
+    
+    

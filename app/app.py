@@ -132,22 +132,30 @@ def user_profile():
         genre_background_colors=generate_gradients()
 )
 
+
+BR_TOP50_ID = "3g3WzU7ST7QKj7dXjntT0t"
+
 @app.route('/brasil')
 def brasil():
-    # pega o código que o Spotify envia
-    code = request.args.get('code')
-    # troca o código pelo token de acesso
-    token_info = spotify_service.oauth.get_access_token(code)
+    token_info = session.get('token_info')
+    user_data = session.get('user_data')
 
-    session['token_info'] = token_info
-    spotify_service.set_access_token(token_info['access_token'])
-    # pega os dados do usuário logado
-    user_data = spotify_service.get_user_data()
+    if not token_info or not user_data:
+        return redirect(url_for('index'))
+    
+
+    access_token = token_info['access_token']
+    spotify_service.set_access_token(access_token)
 
     session['user_data'] = user_data
 
+    musics_id = []
+    playlist = spotify_service.get_playlist_tracks(BR_TOP50_ID, limit=50)
+    for item in playlist["items"]:
+        musics_id.append(item["track"]["id"])
 
-    return render_template('brasil.html', user=user_data)
+
+    return render_template('brasil.html', user=user_data, musics=musics_id)
 
 @app.route('/global')
 def Global():
