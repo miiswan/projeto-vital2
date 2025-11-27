@@ -8,6 +8,7 @@ import os
 from collections import Counter
 import random
 
+
 # cria a aplicação flask
 app = Flask(__name__)
 
