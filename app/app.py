@@ -3,7 +3,7 @@
 from os import access
 
 from flask import Flask, redirect, url_for, request, session, render_template
-from spotify_service import create_spotify_oauth, get_user_data, get_user_top_artists, get_user_top_musics, get_top_artist_by_genre
+from spotify_service import SpotifyService
 import os
 from collections import Counter
 import random
@@ -14,6 +14,10 @@ app = Flask(__name__)
 
 
 app.secret_key = os.urandom(64)
+
+
+spotify_service = SpotifyService()
+
 
  # as rotas @app.route sao enderecos do site
  # redirect serve pra redirecionar o navegador
@@ -28,25 +32,26 @@ def index():
 # rota para fazer login no Spotify
 @app.route('/login')
 def login():
-    # cria o objeto de autenticação do Spotify
-    sp_oauth = create_spotify_oauth()
-    # cega a URL de autorização
-    auth_url = sp_oauth.get_authorize_url()
-    # redireciona o usuário para o login do Spotify
+    auth_url = spotify_service.oauth.get_authorize_url()
     return redirect(auth_url)
 
 # rota de callback — é pra onde o Spotify manda o usuário depois do login
 @app.route('/callback')
 def callback():
-    sp_oauth = create_spotify_oauth()
     # pega o código que o Spotify envia
     code = request.args.get('code')
+
     # troca o código pelo token de acesso
-    token_info = sp_oauth.get_access_token(code)
+    token_info = spotify_service.oauth.get_access_token(code)
 
     session['token_info'] = token_info
+
+    #configura o client atenticado
+    spotify_service.set_access_token(token_info['access_token'])
+
+
     # pega os dados do usuário logado
-    user_data = get_user_data(token_info['access_token'])
+    user_data = spotify_service.get_user_data()
 
     session['user_data'] = user_data
     
@@ -63,12 +68,13 @@ def user_profile():
         return redirect(url_for('index'))
     
     access_token = token_info['access_token']
+    spotify_service.set_access_token(access_token)
 
-    top5_tracks = get_user_top_musics(access_token, time_range='medium_term', limit=5, offset=0)
+    top5_tracks = spotify_service.get_user_top_musics(time_range='medium_term', limit=5, offset=0)
 
-    top_artists = get_user_top_artists(access_token, time_range='medium_term', limit=5, offset=0)
+    top_artists = spotify_service.get_user_top_artists(time_range='medium_term', limit=5, offset=0)
 
-    top_artists_to_format = get_user_top_artists(access_token, time_range='medium_term', limit=50, offset=0)
+    top_artists_to_format = spotify_service.get_user_top_artists(time_range='medium_term', limit=50, offset=0)
 
 
     # Analisando os dados dos 50 artistas mais escutados para saber os gêneros mais escutados
@@ -84,7 +90,7 @@ def user_profile():
         genres_to_lower_case.append(genre_lower)
 
     #Buscando artista mais escutado de cada gênero
-    most_listend_artist_by_genre = get_top_artist_by_genre(top_artists_to_format, genres)
+    most_listend_artist_by_genre = spotify_service.get_top_artist_by_genre(top_artists_to_format, genres)
 
     #Sorteando os linear-gradients para background do gênero
     #Soretando cor
