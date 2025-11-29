@@ -149,6 +149,6 @@ body {
   flex-direction: column;
   gap: 10px;
 
-  max-height: 500px;
+  max-height: 100%;
   overflow: auto;
 }
